@@ -3,12 +3,14 @@ package controller;
 
 import domain.LottoGame;
 import service.LottoService;
+import validation.UserInputValidation;
 import view.UserInputView;
 
 public class LottoController {
 
     private final UserInputView userInputView = new UserInputView();
     private final LottoService lottoService = new LottoService();
+    private final UserInputValidation userInputValidation = new UserInputValidation();
     private LottoGame game;
 
     public void gameStart() {
@@ -16,9 +18,16 @@ public class LottoController {
     }
 
     public void userInputPurchaseMoneySave() {
-        String userInputValue = userInputView.userInputPurchaseMoney();
-        int purchaseMoney = lottoService.valueConversion(userInputValue);
-        this.game = new LottoGame(purchaseMoney);
+        while (true) {
+            try {
+                String userInputValue = userInputView.userInputPurchaseMoney();
+                int purchaseMoney = lottoService.valueConversion(userInputValue);
+                this.game = new LottoGame(userInputValidation.purchaseMoneyValidation(purchaseMoney));
+                break; //테스트를 위해 추가
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 
 
