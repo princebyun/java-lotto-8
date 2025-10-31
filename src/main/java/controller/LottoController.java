@@ -15,7 +15,7 @@ public class LottoController {
 
     public void gameStart() {
         userInputPurchaseMoneySave();
-        makeLottoList();
+        //makeLottoList();
     }
 
     public void userInputPurchaseMoneySave() {
@@ -31,8 +31,10 @@ public class LottoController {
         }
     }
 
-    public void makeLottoList() {
-        System.out.println(lottoService.makelotto());
-    }
+  /*  public void makeLottoList() {
+        int money = game.getPurchaseMoney() / 1000;
+
+    }*/
+
 
 }
