@@ -43,6 +43,19 @@ public class LottoController {
         resultView.userPurchaseLottoListView(game.getLottoGameList());
     }
 
+    public void userInputWinningNumbersSave() {
+        while (true) {
+            try {
+                String userInput = userInputView.userInputWinningNumbers();
+                
+                return;
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
+
     /**
      * 컨트롤러 테스트를 위해 작성
      */
