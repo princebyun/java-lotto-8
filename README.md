@@ -99,4 +99,5 @@ view -> Controller -> service -> domain -> service -> controller -> view
 
 ## ♻️ 리팩토링 목록
 
-1. 에러메세지 다시 작성
+1. makeLottoList() 금액 나누는 로직 기능으로 다시 빼기
+2. 에러메세지 다시 작성

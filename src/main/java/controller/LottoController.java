@@ -6,6 +6,7 @@ import java.util.List;
 import lotto.Lotto;
 import service.LottoService;
 import validation.UserInputValidation;
+import view.ResultView;
 import view.UserInputView;
 
 public class LottoController {
@@ -13,6 +14,7 @@ public class LottoController {
     private final UserInputView userInputView = new UserInputView();
     private final LottoService lottoService = new LottoService();
     private final UserInputValidation userInputValidation = new UserInputValidation();
+    private final ResultView resultView = new ResultView();
     private LottoGame game;
 
     public void gameStart() {
@@ -23,7 +25,7 @@ public class LottoController {
     public void userInputPurchaseMoneySave() {
         while (true) {
             try {
-                String userInputValue = userInputView.userInputPurchaseMoney();
+                String userInputValue = userInputView.userInputPurchaseMoneyView();
                 int purchaseMoney = lottoService.valueConversion(userInputValue);
                 game = new LottoGame(userInputValidation.purchaseMoneyValidation(purchaseMoney));
                 return;
@@ -37,6 +39,7 @@ public class LottoController {
         int money = game.getPurchaseMoney() / 1000;
         List<Lotto> userPurchaseLottoList = lottoService.userPurchaseLottoListmake(money);
         game.setLottoGameList(userPurchaseLottoList);
+        resultView.purchaseLottoCountView(game.getLottoGameList().size());
     }
 
     /**

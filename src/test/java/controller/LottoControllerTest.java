@@ -35,6 +35,9 @@ class LottoControllerTest extends NsTest {
 
             List<Lotto> resultList = lottoController.getGame().getLottoGameList();
             assertThat(resultList.size()).isEqualTo(3);
+
+            String consoleOutput = output();
+            assertThat(consoleOutput).isNotInstanceOfAny(IllegalArgumentException.class);
         });
     }
 
