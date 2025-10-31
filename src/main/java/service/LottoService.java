@@ -15,7 +15,7 @@ public class LottoService {
         }
     }
 
-    public List<Integer> makelotto() {
+    public List<Integer> makeLotto() {
         return Randoms.pickUniqueNumbersInRange(1, 45, 6);
     }
 
@@ -23,7 +23,7 @@ public class LottoService {
     public List<Lotto> userPurchaseLottoListmake(int money) {
         List<Lotto> userPurchaseLottoList = new ArrayList<>();
         for (int i = 0; i < money; i++) {
-            List<Integer> lottoList = makelotto();
+            List<Integer> lottoList = makeLotto();
             userPurchaseLottoList.add(new Lotto(lottoList));
         }
         return userPurchaseLottoList;

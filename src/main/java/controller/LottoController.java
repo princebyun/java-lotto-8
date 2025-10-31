@@ -40,6 +40,7 @@ public class LottoController {
         List<Lotto> userPurchaseLottoList = lottoService.userPurchaseLottoListmake(money);
         game.setLottoGameList(userPurchaseLottoList);
         resultView.purchaseLottoCountView(game.getLottoGameList().size());
+        resultView.userPurchaseLottoListView(game.getLottoGameList());
     }
 
     /**

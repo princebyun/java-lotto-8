@@ -27,7 +27,7 @@ class LottoServiceTest {
     @Test
     @DisplayName("로또발행 테스트")
     void makeLotto() {
-        List<Integer> lottoList = service.makelotto();
+        List<Integer> lottoList = service.makeLotto();
         assertThat(lottoList.size()).isEqualTo(6);
     }
 
