@@ -61,6 +61,7 @@ public class LottoController {
 
     public void userInputBonusNumberSave() {
         String userInput = userInputView.userInputBonusNumber();
+        userInputValidation.bonusNumberValidation(userInput, lottoGame.getWinningNumbers());
     }
 
     /**
