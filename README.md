@@ -60,12 +60,14 @@
 8. 당첨 번호 입력
 9. 당첨 번호 입력 Validation (음수, 1\~45, 중복 X, 문자 X , 소숫점 X)
 10. Validation `IllegalArgumentException` 발생 시, 당첨 번호 입력 부분으로 롤백
-11. 보너스 번호 입력
-12. 보너스 번호 입력 Validation (당첨 번호를 제외한 1\~45, 음수 X, 문자 X)
-13. Validation `IllegalArgumentException` 발생 시, 보너스 번호 입력으로 롤백
-14. 당첨정보 Enum 클래스로 생성
-15. 당첨 통계 출력
-16. 총 수익률 출력
+11. 당첨 번호 저장
+12. 보너스 번호 입력
+13. 보너스 번호 입력 Validation (당첨 번호를 제외한 1\~45, 음수 X, 문자 X)
+14. Validation `IllegalArgumentException` 발생 시, 보너스 번호 입력으로 롤백
+15. 보너스 번호 저장
+16. 당첨정보 Enum 클래스로 생성
+17. 당첨 통계 출력
+18. 총 수익률 출력
 
 -----
 
