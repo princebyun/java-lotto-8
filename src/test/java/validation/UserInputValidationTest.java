@@ -2,6 +2,8 @@ package validation;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -40,5 +42,27 @@ class UserInputValidationTest {
         }).isInstanceOf(IllegalArgumentException.class);
     }
 
+    @Test
+    @DisplayName("보너스 번호 밸리데이션 테스트")
+    void bonusNumberValidation() {
+        List<Integer> winningNumbers = new ArrayList<>();
+        winningNumbers.add(1);
+        winningNumbers.add(2);
+        winningNumbers.add(3);
+        winningNumbers.add(4);
 
+        String bonusNumber1 = "asdasd";
+        String bonusNumber2 = "-1";
+        String bonusNumber3 = "1.1";
+        String bonusNumber4 = "111";
+        String bonusNumber5 = "4";
+
+        assertThatThrownBy(() -> {
+            userInputValidation.bonusNumberValidation(bonusNumber1, winningNumbers);
+            userInputValidation.bonusNumberValidation(bonusNumber2, winningNumbers);
+            userInputValidation.bonusNumberValidation(bonusNumber3, winningNumbers);
+            userInputValidation.bonusNumberValidation(bonusNumber4, winningNumbers);
+            userInputValidation.bonusNumberValidation(bonusNumber5, winningNumbers);
+        }).isInstanceOf(IllegalArgumentException.class);
+    }
 }

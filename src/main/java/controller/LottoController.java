@@ -21,6 +21,7 @@ public class LottoController {
         userInputPurchaseMoneySave();
         makeLottoList();
         userInputWinningNumbersSave();
+        userInputBonusNumberSave();
     }
 
     public void userInputPurchaseMoneySave() {

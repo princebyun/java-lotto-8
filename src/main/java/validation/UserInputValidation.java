@@ -2,6 +2,7 @@ package validation;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class UserInputValidation {
@@ -9,12 +10,12 @@ public class UserInputValidation {
 
     public int purchaseMoneyValidation(int purchaseMoney) {
         purchaseMoneyRemainder(purchaseMoney);
-        valueNegative(purchaseMoney);
+        numberNegative(purchaseMoney);
         return purchaseMoney;
     }
 
 
-    public void valueNegative(int purchaseMoney) {
+    public void numberNegative(int purchaseMoney) {
         if (purchaseMoney < 0) {
             throw new IllegalArgumentException("음수는 입력이 안됩니다.");
         }
@@ -27,14 +28,27 @@ public class UserInputValidation {
         }
     }
 
+    public void bonusNumberValidation(String userInput, List<Integer> winningNumbers) {
+        checkDecimalPoint(userInput);
+        int bonusNumber = numbersConversionValidation(userInput);
+        numberNegative(bonusNumber);
+        numbersRangeValidation(bonusNumber);
+        winningNumbersDuplicateCheck(bonusNumber, winningNumbers);
+    }
+
+    public void winningNumbersDuplicateCheck(int bonusNumber, List<Integer> winningNumbers) {
+        if (winningNumbers.contains(bonusNumber)) {
+            throw new IllegalArgumentException("보너스 번호는 당첨 번호와 중복될 수 없습니다.");
+        }
+    }
 
     public void winningNumbersValidation(String[] userInput) {
         duplicateCheck(userInput);
         for (String value : userInput) {
             checkDecimalPoint(value);
-            int winningNumber = winningNumbersConversionValidation(value);
-            valueNegative(winningNumber);
-            winningNumbersRangeValidation(winningNumber);
+            int winningNumber = numbersConversionValidation(value);
+            numberNegative(winningNumber);
+            numbersRangeValidation(winningNumber);
         }
     }
 
@@ -53,7 +67,7 @@ public class UserInputValidation {
     }
 
 
-    public Integer winningNumbersConversionValidation(String winningNumber) {
+    public Integer numbersConversionValidation(String winningNumber) {
         try {
             return Integer.parseInt(winningNumber);
         } catch (NumberFormatException e) {
@@ -62,7 +76,7 @@ public class UserInputValidation {
     }
 
 
-    public void winningNumbersRangeValidation(int winningNumber) {
+    public void numbersRangeValidation(int winningNumber) {
         if (winningNumber < 1 || 45 < winningNumber) {
             throw new IllegalArgumentException("입력값은 1부터 45 사이의 중복되지 않는 정수입니다.");
         }
