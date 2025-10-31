@@ -32,7 +32,7 @@ public class UserInputValidation {
         duplicateCheck(userInput);
         for (String value : userInput) {
             checkDecimalPoint(value);
-            int winningNumber = winningNumbersConversion(value);
+            int winningNumber = winningNumbersConversionValidation(value);
             valueNegative(winningNumber);
             winningNumbersRangeValidation(winningNumber);
         }
@@ -53,7 +53,7 @@ public class UserInputValidation {
     }
 
 
-    public Integer winningNumbersConversion(String winningNumber) {
+    public Integer winningNumbersConversionValidation(String winningNumber) {
         try {
             return Integer.parseInt(winningNumber);
         } catch (NumberFormatException e) {

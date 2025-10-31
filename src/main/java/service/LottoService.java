@@ -2,6 +2,7 @@ package service;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import lotto.Lotto;
@@ -35,6 +36,10 @@ public class LottoService {
 
     public String[] winningNumbersSplit(String userInput) {
         return userInput.split(",");
+    }
+
+    public List<Integer> winningNumbersConversion(String[] userInput) {
+        return Arrays.stream(userInput).map(Integer::parseInt).sorted().collect(Collectors.toList());
     }
 
 

@@ -3,6 +3,7 @@ package service;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import java.util.ArrayList;
 import java.util.List;
 import lotto.Lotto;
 import org.junit.jupiter.api.DisplayName;
@@ -43,4 +44,18 @@ class LottoServiceTest {
     }
 
 
+    @Test
+    @DisplayName("스트림을 이용한 리스트 변환")
+    void winningNumbersConversion() {
+        List<Integer> compairList = new ArrayList<>();
+        compairList.add(1);
+        compairList.add(2);
+        compairList.add(3);
+        compairList.add(4);
+
+        String[] valueList = {"4", "2", "3", "1"};
+
+        assertThat(service.winningNumbersConversion(valueList)).isEqualTo(compairList);
+
+    }
 }

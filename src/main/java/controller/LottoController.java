@@ -50,7 +50,7 @@ public class LottoController {
                 String userInput = userInputView.userInputWinningNumbers();
                 String[] userInputSplit = lottoService.winningNumbersSplit(userInput);
                 userInputValidation.winningNumbersValidation(userInputSplit);
-
+                
                 return;
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
