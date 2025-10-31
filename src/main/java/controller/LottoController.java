@@ -60,8 +60,15 @@ public class LottoController {
     }
 
     public void userInputBonusNumberSave() {
-        String userInput = userInputView.userInputBonusNumber();
-        userInputValidation.bonusNumberValidation(userInput, lottoGame.getWinningNumbers());
+        while (true) {
+            try {
+                String userInput = userInputView.userInputBonusNumber();
+                userInputValidation.bonusNumberValidation(userInput, lottoGame.getWinningNumbers());
+                return;
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 
     /**
