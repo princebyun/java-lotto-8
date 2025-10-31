@@ -15,6 +15,9 @@ public class LottoGame {
         this.lottoGameList = lottoList;
     }
 
+    public List<Lotto> getLottoGameList() {
+        return lottoGameList;
+    }
 
     public int getPurchaseMoney() {
         return purchaseMoney;

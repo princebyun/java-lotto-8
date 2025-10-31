@@ -2,6 +2,8 @@ package controller;
 
 
 import domain.LottoGame;
+import java.util.List;
+import lotto.Lotto;
 import service.LottoService;
 import validation.UserInputValidation;
 import view.UserInputView;
@@ -15,7 +17,7 @@ public class LottoController {
 
     public void gameStart() {
         userInputPurchaseMoneySave();
-        //makeLottoList();
+        makeLottoList();
     }
 
     public void userInputPurchaseMoneySave() {
@@ -23,7 +25,7 @@ public class LottoController {
             try {
                 String userInputValue = userInputView.userInputPurchaseMoney();
                 int purchaseMoney = lottoService.valueConversion(userInputValue);
-                this.game = new LottoGame(userInputValidation.purchaseMoneyValidation(purchaseMoney));
+                game = new LottoGame(userInputValidation.purchaseMoneyValidation(purchaseMoney));
                 return;
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
@@ -31,10 +33,16 @@ public class LottoController {
         }
     }
 
-  /*  public void makeLottoList() {
+    public void makeLottoList() {
         int money = game.getPurchaseMoney() / 1000;
+        List<Lotto> userPurchaseLottoList = lottoService.userPurchaseLottoListmake(money);
+        game.setLottoGameList(userPurchaseLottoList);
+    }
 
-    }*/
-
-
+    /**
+     * 컨트롤러 테스트를 위해 작성
+     */
+    public LottoGame getGame() {
+        return game;
+    }
 }
