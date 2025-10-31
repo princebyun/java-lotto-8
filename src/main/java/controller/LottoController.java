@@ -20,6 +20,7 @@ public class LottoController {
     public void gameStart() {
         userInputPurchaseMoneySave();
         makeLottoList();
+        userInputWinningNumbersSave();
     }
 
     public void userInputPurchaseMoneySave() {
