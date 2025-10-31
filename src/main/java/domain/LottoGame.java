@@ -4,12 +4,12 @@ import java.util.List;
 import lotto.Lotto;
 
 public class LottoGame {
-    private final int purchaseMoney;
+    private int purchaseMoney;
     private List<Lotto> lottoGameList;
     private List<Integer> winningNumbers;
     private int bonusNumber;
 
-    
+
     public int getBonusNumber() {
         return bonusNumber;
     }
@@ -18,7 +18,7 @@ public class LottoGame {
         this.bonusNumber = bonusNumber;
     }
 
-    public LottoGame(int purchaseMoney) {
+    public void setPurchaseMoney(int purchaseMoney) {
         this.purchaseMoney = purchaseMoney;
     }
 

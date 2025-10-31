@@ -9,11 +9,11 @@ import lotto.Lotto;
 
 public class LottoService {
 
-    public int valueConversion(String purchaseMoney) {
+    public int valueIntegerConversion(String value) {
         try {
-            return Integer.parseInt(purchaseMoney);
+            return Integer.parseInt(value);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("금액이 정수로 변환불가");
+            throw new IllegalArgumentException("문자는 입력할수 없습니다.");
         }
     }
 

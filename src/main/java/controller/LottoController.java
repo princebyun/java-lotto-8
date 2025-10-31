@@ -15,7 +15,7 @@ public class LottoController {
     private final LottoService lottoService = new LottoService();
     private final UserInputValidation userInputValidation = new UserInputValidation();
     private final ResultView resultView = new ResultView();
-    private LottoGame lottoGame;
+    private final LottoGame lottoGame = new LottoGame();
 
     public void gameStart() {
         userInputPurchaseMoneySave();
@@ -28,8 +28,8 @@ public class LottoController {
         while (true) {
             try {
                 String userInputValue = userInputView.userInputPurchaseMoneyView();
-                int purchaseMoney = lottoService.valueConversion(userInputValue);
-                lottoGame = new LottoGame(userInputValidation.purchaseMoneyValidation(purchaseMoney));
+                int purchaseMoney = lottoService.valueIntegerConversion(userInputValue);
+                lottoGame.setPurchaseMoney(userInputValidation.purchaseMoneyValidation(purchaseMoney));
                 return;
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
@@ -64,6 +64,7 @@ public class LottoController {
             try {
                 String userInput = userInputView.userInputBonusNumber();
                 userInputValidation.bonusNumberValidation(userInput, lottoGame.getWinningNumbers());
+                lottoGame.setBonusNumber(lottoService.valueIntegerConversion(userInput));
                 return;
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());

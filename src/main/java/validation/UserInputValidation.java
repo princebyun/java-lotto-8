@@ -4,9 +4,10 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import service.LottoService;
 
 public class UserInputValidation {
-
+    LottoService lottoService = new LottoService();
 
     public int purchaseMoneyValidation(int purchaseMoney) {
         purchaseMoneyRemainder(purchaseMoney);
@@ -22,15 +23,14 @@ public class UserInputValidation {
     }
 
     public void purchaseMoneyRemainder(int purchaseMoney) {
-        int remainder = purchaseMoney % 1000;
-        if (remainder != 0) {
+        if (purchaseMoney % 1000 != 0) {
             throw new IllegalArgumentException("1,000원 단위가 아닙니다.");
         }
     }
 
     public void bonusNumberValidation(String userInput, List<Integer> winningNumbers) {
         checkDecimalPoint(userInput);
-        int bonusNumber = numbersConversionValidation(userInput);
+        int bonusNumber = lottoService.valueIntegerConversion(userInput);
         numberNegative(bonusNumber);
         numbersRangeValidation(bonusNumber);
         winningNumbersDuplicateCheck(bonusNumber, winningNumbers);
@@ -46,7 +46,7 @@ public class UserInputValidation {
         duplicateCheck(userInput);
         for (String value : userInput) {
             checkDecimalPoint(value);
-            int winningNumber = numbersConversionValidation(value);
+            int winningNumber = lottoService.valueIntegerConversion(value);
             numberNegative(winningNumber);
             numbersRangeValidation(winningNumber);
         }
@@ -63,15 +63,6 @@ public class UserInputValidation {
     public void checkDecimalPoint(String winningNumber) {
         if (winningNumber.contains(".")) {
             throw new IllegalArgumentException("입력값은 정수어야 합니다.");
-        }
-    }
-
-
-    public Integer numbersConversionValidation(String winningNumber) {
-        try {
-            return Integer.parseInt(winningNumber);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("쉼표로 구분하며,숫자만 입력해야합니다.");
         }
     }
 
