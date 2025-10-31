@@ -15,6 +15,7 @@ public class LottoController {
 
     public void gameStart() {
         userInputPurchaseMoneySave();
+        makeLottoList();
     }
 
     public void userInputPurchaseMoneySave() {
@@ -23,10 +24,15 @@ public class LottoController {
                 String userInputValue = userInputView.userInputPurchaseMoney();
                 int purchaseMoney = lottoService.valueConversion(userInputValue);
                 this.game = new LottoGame(userInputValidation.purchaseMoneyValidation(purchaseMoney));
+                return;
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
         }
+    }
+
+    public void makeLottoList() {
+        System.out.println(lottoService.makelotto());
     }
 
 }
