@@ -55,14 +55,16 @@
 3. Validation `IllegalArgumentException` 발생 시, 다시 로또 구입 금액 입력 부분으로 롤백
 4. 로또 발행 기능
 5. 구입한 금액대로 로또 발행
-6. 당첨 번호 입력
-7. 당첨 번호 입력 Validation (음수, 1\~45, 중복 X, 문자 X)
-8. Validation `IllegalArgumentException` 발생 시, 당첨 번호 입력 부분으로 롤백
-9. 보너스 번호 입력
-10. 보너스 번호 입력 Validation (당첨 번호를 제외한 1\~45, 음수 X, 문자 X)
-11. Validation `IllegalArgumentException` 발생 시, 보너스 번호 입력으로 롤백
-12. 당첨 통계 출력
-13. 총 수익률 출력
+6. 구입한 금액 출력
+7. 구입한 로또 목록 출력
+8. 당첨 번호 입력
+9. 당첨 번호 입력 Validation (음수, 1\~45, 중복 X, 문자 X)
+10. Validation `IllegalArgumentException` 발생 시, 당첨 번호 입력 부분으로 롤백
+11. 보너스 번호 입력
+12. 보너스 번호 입력 Validation (당첨 번호를 제외한 1\~45, 음수 X, 문자 X)
+13. Validation `IllegalArgumentException` 발생 시, 보너스 번호 입력으로 롤백
+14. 당첨 통계 출력
+15. 총 수익률 출력
 
 -----
 
