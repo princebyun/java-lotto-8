@@ -23,12 +23,10 @@ public class LottoController {
                 String userInputValue = userInputView.userInputPurchaseMoney();
                 int purchaseMoney = lottoService.valueConversion(userInputValue);
                 this.game = new LottoGame(userInputValidation.purchaseMoneyValidation(purchaseMoney));
-                break; //테스트를 위해 추가
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
         }
     }
-
 
 }
