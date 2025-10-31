@@ -15,7 +15,7 @@ public class LottoController {
     private final LottoService lottoService = new LottoService();
     private final UserInputValidation userInputValidation = new UserInputValidation();
     private final ResultView resultView = new ResultView();
-    private LottoGame game;
+    private LottoGame lottoGame;
 
     public void gameStart() {
         userInputPurchaseMoneySave();
@@ -28,7 +28,7 @@ public class LottoController {
             try {
                 String userInputValue = userInputView.userInputPurchaseMoneyView();
                 int purchaseMoney = lottoService.valueConversion(userInputValue);
-                game = new LottoGame(userInputValidation.purchaseMoneyValidation(purchaseMoney));
+                lottoGame = new LottoGame(userInputValidation.purchaseMoneyValidation(purchaseMoney));
                 return;
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
@@ -37,11 +37,11 @@ public class LottoController {
     }
 
     public void makeLottoList() {
-        int money = game.getPurchaseMoney() / 1000;
+        int money = lottoGame.getPurchaseMoney() / 1000;
         List<Lotto> userPurchaseLottoList = lottoService.userPurchaseLottoListmake(money);
-        game.setLottoGameList(userPurchaseLottoList);
-        resultView.purchaseLottoCountView(game.getLottoGameList().size());
-        resultView.userPurchaseLottoListView(game.getLottoGameList());
+        lottoGame.setLottoGameList(userPurchaseLottoList);
+        resultView.purchaseLottoCountView(lottoGame.getLottoGameList().size());
+        resultView.userPurchaseLottoListView(lottoGame.getLottoGameList());
     }
 
     public void userInputWinningNumbersSave() {
@@ -50,7 +50,7 @@ public class LottoController {
                 String userInput = userInputView.userInputWinningNumbers();
                 String[] userInputSplit = lottoService.winningNumbersSplit(userInput);
                 userInputValidation.winningNumbersValidation(userInputSplit);
-                
+                lottoGame.setWinningNumbers(lottoService.winningNumbersConversion(userInputSplit));
                 return;
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
@@ -62,7 +62,7 @@ public class LottoController {
     /**
      * 컨트롤러 테스트를 위해 작성
      */
-    public LottoGame getGame() {
-        return game;
+    public LottoGame getLottoGame() {
+        return lottoGame;
     }
 }

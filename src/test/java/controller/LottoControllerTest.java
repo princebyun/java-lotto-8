@@ -33,7 +33,7 @@ class LottoControllerTest extends NsTest {
 
             lottoController.gameStart();
 
-            List<Lotto> resultList = lottoController.getGame().getLottoGameList();
+            List<Lotto> resultList = lottoController.getLottoGame().getLottoGameList();
             assertThat(resultList.size()).isEqualTo(3);
 
             String consoleOutput = output();
