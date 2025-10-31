@@ -44,15 +44,9 @@ public class LottoController {
     }
 
     public void userInputWinningNumbersSave() {
-        while (true) {
-            try {
-                String userInput = userInputView.userInputWinningNumbers();
-                
-                return;
-            } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
-            }
-        }
+        String userInput = userInputView.userInputWinningNumbers();
+        String[] userInputSplit = lottoService.winningNumbersSplit(userInput);
+        userInputValidation.winningNumbersValidation(userInputSplit);
     }
 
 

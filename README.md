@@ -58,7 +58,7 @@
 6. 구입한 금액 출력
 7. 구입한 로또 목록 출력
 8. 당첨 번호 입력
-9. 당첨 번호 입력 Validation (음수, 1\~45, 중복 X, 문자 X)
+9. 당첨 번호 입력 Validation (음수, 1\~45, 중복 X, 문자 X , 소숫점 X)
 10. Validation `IllegalArgumentException` 발생 시, 당첨 번호 입력 부분으로 롤백
 11. 보너스 번호 입력
 12. 보너스 번호 입력 Validation (당첨 번호를 제외한 1\~45, 음수 X, 문자 X)

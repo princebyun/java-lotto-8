@@ -33,4 +33,9 @@ public class LottoService {
         return userPurchaseLottoList;
     }
 
+    public String[] winningNumbersSplit(String userInput) {
+        return userInput.split(",");
+    }
+
+
 }
