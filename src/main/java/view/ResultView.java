@@ -28,4 +28,9 @@ public class ResultView {
         System.out.println("6개 일치 (2,000,000,000원) - " + lottoGame.getFirstCount() + "개");
     }
 
+    public void lottoResult(Double resultValue) {
+        String resultString = String.format("%.1f", resultValue);
+        System.out.println("총 수익률은 " + resultString + "%입니다.");
+    }
+
 }

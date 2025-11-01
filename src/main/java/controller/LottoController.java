@@ -76,7 +76,7 @@ public class LottoController {
     public void lottoMatch() {
         lottoService.winningNumberMatch(lottoGame);
         resultView.lottoStatisticsView(lottoGame);
-        lottoService.lottoResult(lottoGame);
+        resultView.lottoResult(lottoService.lottoResult(lottoGame));
     }
 
     /**
