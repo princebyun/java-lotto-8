@@ -22,6 +22,7 @@ public class LottoController {
         makeLottoList();
         userInputWinningNumbersSave();
         userInputBonusNumberSave();
+        lottoMatch();
     }
 
     public void userInputPurchaseMoneySave() {
@@ -73,7 +74,8 @@ public class LottoController {
     }
 
     public void lottoMatch() {
-
+        lottoService.winningNumberMatch(lottoGame);
+        
     }
 
     /**

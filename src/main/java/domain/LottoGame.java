@@ -18,40 +18,20 @@ public class LottoGame {
         return firstCount;
     }
 
-    public void setFirstCount(int firstCount) {
-        this.firstCount = firstCount;
-    }
-
     public int getSecondCount() {
         return secondCount;
-    }
-
-    public void setSecondCount(int secondCount) {
-        this.secondCount = secondCount;
     }
 
     public int getThirdCount() {
         return thirdCount;
     }
 
-    public void setThirdCount(int thirdCount) {
-        this.thirdCount = thirdCount;
-    }
-
     public int getFourthCount() {
         return fourthCount;
     }
 
-    public void setFourthCount(int fourthCount) {
-        this.fourthCount = fourthCount;
-    }
-
     public int getFifthCount() {
         return fifthCount;
-    }
-
-    public void setFifthCount(int fifthCount) {
-        this.fifthCount = fifthCount;
     }
 
     public int getBonusNumber() {
@@ -84,5 +64,27 @@ public class LottoGame {
 
     public int getPurchaseMoney() {
         return purchaseMoney;
+    }
+
+    public void getCounts(WinningInfo winningInfo) {
+        if (winningInfo.getWinningNumber() == 6) {
+            this.firstCount++;
+            return;
+        }
+        if (winningInfo.getWinningNumber() == 5 && winningInfo.getBonusNumber() == 1) {
+            this.secondCount++;
+            return;
+        }
+        if (winningInfo.getWinningNumber() == 5) {
+            this.thirdCount++;
+            return;
+        }
+        if (winningInfo.getWinningNumber() == 4) {
+            this.fourthCount++;
+            return;
+        }
+        if (winningInfo.getWinningNumber() == 3) {
+            this.fifthCount++;
+        }
     }
 }

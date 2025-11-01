@@ -2,6 +2,7 @@ package service;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import domain.LottoGame;
+import domain.WinningInfo;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -49,6 +50,8 @@ public class LottoService {
         for (Lotto lotto : lottoGameList) {
             int matchNumberCount = matchNumberCount(lotto.getNumbers(), lottoGame.getWinningNumbers());
             int bonusNumberCheck = bonusNumberCheck(lotto.getNumbers(), lottoGame.getBonusNumber());
+            WinningInfo winningInfo = WinningInfo.matchNumber(matchNumberCount, bonusNumberCheck);
+            lottoGame.getCounts(winningInfo);
         }
 
         return lottoGame;
