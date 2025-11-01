@@ -50,6 +50,13 @@ public class UserInputValidation {
             numberNegative(winningNumber);
             numbersRangeValidation(winningNumber);
         }
+        lengthCheck(userInput);
+    }
+
+    public void lengthCheck(String[] userInput) {
+        if (userInput.length != 6) {
+            throw new IllegalArgumentException("[ERROR] 6자리를 입력해주세요.");
+        }
     }
 
     public void duplicateCheck(String[] userInput) {
