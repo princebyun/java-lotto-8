@@ -18,13 +18,13 @@ public class UserInputValidation {
 
     public void numberNegative(int purchaseMoney) {
         if (purchaseMoney < 0) {
-            throw new IllegalArgumentException("음수는 입력이 안됩니다.");
+            throw new IllegalArgumentException("[ERROR] 음수는 입력이 안됩니다.");
         }
     }
 
     public void purchaseMoneyRemainder(int purchaseMoney) {
         if (purchaseMoney % 1000 != 0) {
-            throw new IllegalArgumentException("1,000원 단위가 아닙니다.");
+            throw new IllegalArgumentException("[ERROR] 1,000원 단위가 아닙니다.");
         }
     }
 
@@ -38,7 +38,7 @@ public class UserInputValidation {
 
     public void winningNumbersDuplicateCheck(int bonusNumber, List<Integer> winningNumbers) {
         if (winningNumbers.contains(bonusNumber)) {
-            throw new IllegalArgumentException("보너스 번호는 당첨 번호와 중복될 수 없습니다.");
+            throw new IllegalArgumentException("[ERROR] 보너스 번호는 당첨 번호와 중복될 수 없습니다.");
         }
     }
 
@@ -55,21 +55,21 @@ public class UserInputValidation {
     public void duplicateCheck(String[] userInput) {
         Set<String> uniqueValues = new HashSet<>(Arrays.asList(userInput));
         if (uniqueValues.size() != userInput.length) {
-            throw new IllegalArgumentException("중복되지 않은 값을 입력해주세요.");
+            throw new IllegalArgumentException("[ERROR] 중복되지 않은 값을 입력해주세요.");
         }
     }
 
 
     public void checkDecimalPoint(String winningNumber) {
         if (winningNumber.contains(".")) {
-            throw new IllegalArgumentException("입력값은 정수어야 합니다.");
+            throw new IllegalArgumentException("[ERROR] 입력값은 정수어야 합니다.");
         }
     }
 
 
     public void numbersRangeValidation(int winningNumber) {
         if (winningNumber < 1 || 45 < winningNumber) {
-            throw new IllegalArgumentException("입력값은 1부터 45 사이의 중복되지 않는 정수입니다.");
+            throw new IllegalArgumentException("[ERROR] 입력값은 1부터 45 사이의 중복되지 않는 정수입니다.");
         }
     }
 

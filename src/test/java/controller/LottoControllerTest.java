@@ -14,7 +14,7 @@ class LottoControllerTest extends NsTest {
     @DisplayName("유저금액입력메스드테스트케이스작성")
     void userInputPurchaseMoneySave() {
         assertSimpleTest(() -> {
-            run("3000");
+            run("3000", "1,2,3,4,5,6", "7");
 
             lottoController.gameStart();
 
@@ -27,7 +27,7 @@ class LottoControllerTest extends NsTest {
     @DisplayName("유저금액로또저장테스트작성")
     void makeLottoList() {
         assertSimpleTest(() -> {
-            run("3000");
+            run("3000", "1,2,3,4,5,6", "7");
 
             lottoController.gameStart();
 

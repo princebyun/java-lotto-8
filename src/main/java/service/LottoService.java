@@ -15,7 +15,7 @@ public class LottoService {
         try {
             return Integer.parseInt(value);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("문자는 입력할수 없습니다.");
+            throw new IllegalArgumentException("[ERROR] 문자는 입력할수 없습니다.");
         }
     }
 
