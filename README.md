@@ -102,4 +102,5 @@ view -> Controller -> service -> domain -> service -> controller -> view
 ## ♻️ 리팩토링 목록
 
 1. makeLottoList() 금액 나누는 로직 기능으로 다시 빼기
-2. 에러메세지 다시 작성
+2. 당첨번호 6자리 밸리데이션추가
+3. 에러메세지 다시 작성

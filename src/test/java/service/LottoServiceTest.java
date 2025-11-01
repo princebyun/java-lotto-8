@@ -19,7 +19,7 @@ class LottoServiceTest {
         String value = "글자는 에러";
 
         assertThatThrownBy(() -> {
-            service.valueConversion(value);
+            service.valueIntegerConversion(value);
         }).isInstanceOf(IllegalArgumentException.class);
 
 
