@@ -79,10 +79,10 @@ public class LottoController {
         resultView.lottoResult(lottoService.lottoResult(lottoGame));
     }
 
-    /**
+    /* *//**
      * 컨트롤러 테스트를 위해 작성
-     */
+     *//*
     public LottoGame getLottoGame() {
         return lottoGame;
-    }
+    }*/
 }
