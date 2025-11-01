@@ -49,7 +49,7 @@ public class LottoController {
     public void userInputWinningNumbersSave() {
         while (true) {
             try {
-                String userInput = userInputView.userInputWinningNumbers();
+                String userInput = userInputView.userInputWinningNumbersView();
                 String[] userInputSplit = lottoService.winningNumbersSplit(userInput);
                 userInputValidation.winningNumbersValidation(userInputSplit);
                 lottoGame.setWinningNumbers(lottoService.winningNumbersConversion(userInputSplit));
@@ -63,7 +63,7 @@ public class LottoController {
     public void userInputBonusNumberSave() {
         while (true) {
             try {
-                String userInput = userInputView.userInputBonusNumber();
+                String userInput = userInputView.userInputBonusNumberView();
                 userInputValidation.bonusNumberValidation(userInput, lottoGame.getWinningNumbers());
                 lottoGame.setBonusNumber(lottoService.valueIntegerConversion(userInput));
                 return;
@@ -75,7 +75,8 @@ public class LottoController {
 
     public void lottoMatch() {
         lottoService.winningNumberMatch(lottoGame);
-        resultView.lottoStatistics(lottoGame);
+        resultView.lottoStatisticsView(lottoGame);
+        lottoService.lottoResult(lottoGame);
     }
 
     /**

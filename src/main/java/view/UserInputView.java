@@ -9,13 +9,13 @@ public class UserInputView {
         return readLine();
     }
 
-    public String userInputWinningNumbers() {
+    public String userInputWinningNumbersView() {
         System.out.println();
         System.out.println("당첨 번호를 입력해 주세요.");
         return readLine();
     }
 
-    public String userInputBonusNumber() {
+    public String userInputBonusNumberView() {
         System.out.println();
         System.out.println("보너스 번호를 입력해 주세요.");
         return readLine();

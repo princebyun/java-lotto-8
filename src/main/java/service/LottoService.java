@@ -65,5 +65,12 @@ public class LottoService {
         return lotto.stream().filter(winningNumbers::contains).toList().size();
     }
 
+    public double lottoResult(LottoGame lottoGame) {
+        return (lottoGame.getFirstCount() * 2000000000)
+                + (lottoGame.getSecondCount() * 30000000)
+                + (lottoGame.getThirdCount() * 1500000)
+                + (lottoGame.getFourthCount() * 50000)
+                + (lottoGame.getFifthCount() * 5000);
+    }
 
 }

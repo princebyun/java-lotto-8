@@ -17,7 +17,7 @@ public class ResultView {
         }
     }
 
-    public void lottoStatistics(LottoGame lottoGame) {
+    public void lottoStatisticsView(LottoGame lottoGame) {
         System.out.println();
         System.out.println("당첨 통계");
         System.out.println("---");
