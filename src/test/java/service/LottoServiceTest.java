@@ -58,4 +58,28 @@ class LottoServiceTest {
         assertThat(service.winningNumbersConversion(valueList)).isEqualTo(compairList);
 
     }
+
+    @Test
+    @DisplayName("매칭넘버 테스트")
+    void winningNumberMatch() {
+        List<Integer> lottoList = new ArrayList<>();
+        lottoList.add(1);
+        lottoList.add(2);
+        lottoList.add(3);
+        lottoList.add(4);
+        lottoList.add(5);
+        lottoList.add(6);
+
+        List<Integer> lottoList2 = new ArrayList<>();
+        lottoList2.add(1);
+        lottoList2.add(2);
+        lottoList2.add(3);
+        lottoList2.add(7);
+        lottoList2.add(8);
+        lottoList2.add(9);
+
+        assertThat(service.matchNumberCount(lottoList, lottoList2)).isEqualTo(3);
+        assertThat(service.bonusNumberCheck(lottoList2, 9)).isEqualTo(1);
+    }
+
 }

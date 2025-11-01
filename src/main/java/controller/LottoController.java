@@ -72,6 +72,10 @@ public class LottoController {
         }
     }
 
+    public void lottoMatch() {
+
+    }
+
     /**
      * 컨트롤러 테스트를 위해 작성
      */

@@ -1,6 +1,7 @@
 package service;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import domain.LottoGame;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -40,6 +41,25 @@ public class LottoService {
 
     public List<Integer> winningNumbersConversion(String[] userInput) {
         return Arrays.stream(userInput).map(Integer::parseInt).sorted().collect(Collectors.toList());
+    }
+
+
+    public LottoGame winningNumberMatch(LottoGame lottoGame) {
+        List<Lotto> lottoGameList = lottoGame.getLottoGameList();
+        for (Lotto lotto : lottoGameList) {
+            int matchNumberCount = matchNumberCount(lotto.getNumbers(), lottoGame.getWinningNumbers());
+            int bonusNumberCheck = bonusNumberCheck(lotto.getNumbers(), lottoGame.getBonusNumber());
+        }
+
+        return lottoGame;
+    }
+
+    public int bonusNumberCheck(List<Integer> lotto, int bonusNumber) {
+        return lotto.stream().filter(element -> element == bonusNumber).toList().size();
+    }
+
+    public int matchNumberCount(List<Integer> lotto, List<Integer> winningNumbers) {
+        return lotto.stream().filter(winningNumbers::contains).toList().size();
     }
 
 
