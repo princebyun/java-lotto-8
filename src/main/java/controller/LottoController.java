@@ -1,9 +1,9 @@
 package controller;
 
 
-import domain.LottoGame;
 import java.util.List;
 import lotto.Lotto;
+import model.LottoGame;
 import service.LottoService;
 import validation.UserInputValidation;
 import view.ResultView;
@@ -24,7 +24,7 @@ public class LottoController {
     }
 
     public void makeLottoList() {
-        int money = lottoGame.getPurchaseMoney() / 1000;
+        int money = lottoService.purchaseMoneyRemain(lottoGame.getPurchaseMoney());
         List<Lotto> userPurchaseLottoList = lottoService.userPurchaseLottoListmake(money);
         lottoGame.setLottoGameList(userPurchaseLottoList);
         resultView.purchaseLottoCountView(lottoGame.getLottoGameList().size());

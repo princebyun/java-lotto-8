@@ -1,13 +1,13 @@
 package service;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import domain.LottoGame;
-import domain.WinningInfo;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import lotto.Lotto;
+import model.LottoGame;
+import model.WinningInfo;
 
 public class LottoService {
 
@@ -73,6 +73,10 @@ public class LottoService {
                 + (lottoGame.getFifthCount() * 5000);
         double purchaseMoney = Double.parseDouble(String.valueOf(lottoGame.getPurchaseMoney()));
         return (allSumValue / purchaseMoney) * 100.0;
+    }
+
+    public int purchaseMoneyRemain(int purchaseMoney) {
+        return purchaseMoney / 1000;
     }
 
 }

@@ -1,8 +1,8 @@
 package view;
 
-import domain.LottoGame;
 import java.util.List;
 import lotto.Lotto;
+import model.LottoGame;
 
 public class ResultView {
 
