@@ -5,7 +5,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import model.LottoMessage;
-import service.LottoService;
 
 public class UserInputValidation {
     private static final int LOTTO_SIZE = 6;
@@ -13,9 +12,6 @@ public class UserInputValidation {
     private static final int LOTTO_END = 45;
     private static final int LOTTO_ZERO = 0;
     private static final int LOTTO_PAY = 1000;
-
-    LottoService lottoService = new LottoService();
-
 
     public int purchaseMoneyValidation(int purchaseMoney) {
         purchaseMoneyRemainder(purchaseMoney);
@@ -36,9 +32,17 @@ public class UserInputValidation {
         }
     }
 
+    public int integerConversion(String value) {
+        try {
+            return Integer.parseInt(value);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(LottoMessage.getError(LottoMessage.ERROR_NOT_NUMBER));
+        }
+    }
+
     public void bonusNumberValidation(String userInput, List<Integer> winningNumbers) {
         checkDecimalPoint(userInput);
-        int bonusNumber = lottoService.valueIntegerConversion(userInput);
+        int bonusNumber = integerConversion(userInput);
         numberNegative(bonusNumber);
         numbersRangeValidation(bonusNumber);
         winningNumbersDuplicateCheck(bonusNumber, winningNumbers);
@@ -54,7 +58,7 @@ public class UserInputValidation {
         duplicateCheck(userInput);
         for (String value : userInput) {
             checkDecimalPoint(value);
-            int winningNumber = lottoService.valueIntegerConversion(value);
+            int winningNumber = integerConversion(value);
             numberNegative(winningNumber);
             numbersRangeValidation(winningNumber);
         }

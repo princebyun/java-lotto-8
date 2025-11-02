@@ -109,3 +109,4 @@ view -> Controller -> service -> domain -> service -> controller -> view
 4. Application 와 LottoController 관심분리 적용
 5. 메서드 길이가 15라인이 넘는 메서드 수정
 6. 상수(static final)사용
+7. 의존성 수정
