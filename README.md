@@ -73,6 +73,18 @@
 
 -----
 
+## ♻️ 리팩토링 목록
+
+1. makeLottoList() 금액 나누는 로직 기능으로 다시 빼기
+2. 당첨번호 6자리 밸리데이션추가
+3. 에러메세지 다시 작성
+4. Application 와 LottoController 관심분리 적용
+5. 메서드 길이가 15라인이 넘는 메서드 수정
+6. 상수(static final)사용
+7. 의존성 수정
+
+-----
+
 ## 🏛️ 3주차 미션 개발 구조 (MVC)
 
 MVC 패턴을 적용해보자.
@@ -97,16 +109,49 @@ view -> Controller -> service -> domain -> service -> controller -> view
 
 ## 📁 파일 구조
 
-(작성 예정)
+```
+java-lotto-8/
+├── gradle/
+│   ├── wrapper/
+│       ├── gradle-wrapper.jar
+│       └── gradle-wrapper.properties
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │       ├── controller/
+│   │       │   └── LottoController.java
+│   │       ├── lotto/
+│   │       │   ├── Application.java
+│   │       │   └── Lotto.java
+│   │       ├── model/
+│   │       │   ├── LottoGame.java
+│   │       │   ├── LottoMessage.java
+│   │       │   └── WinningInfo.java
+│   │       ├── service/
+│   │       │   └── LottoService.java
+│   │       ├── validation/
+│   │       │   └── UserInputValidation.java
+│   │       ├── view/
+│   │           ├── ResultView.java
+│   │           └── UserInputView.java
+│   ├── test/
+│       ├── java/
+│           ├── controller/
+│           │   └── LottoControllerTest.java
+│           ├── lotto/
+│           │   ├── ApplicationTest.java
+│           │   └── LottoTest.java
+│           ├── service/
+│           │   └── LottoServiceTest.java
+│           ├── study/
+│           │   ├── SetCollectionTest.java
+│           │   └── StringTest.java
+│           ├── validation/
+│               └── UserInputValidationTest.java
+├── README.md
+├── build.gradle
+├── gradlew
+├── gradlew.bat
+└── settings.gradle
 
------
-
-## ♻️ 리팩토링 목록
-
-1. makeLottoList() 금액 나누는 로직 기능으로 다시 빼기
-2. 당첨번호 6자리 밸리데이션추가
-3. 에러메세지 다시 작성
-4. Application 와 LottoController 관심분리 적용
-5. 메서드 길이가 15라인이 넘는 메서드 수정
-6. 상수(static final)사용
-7. 의존성 수정
+```
