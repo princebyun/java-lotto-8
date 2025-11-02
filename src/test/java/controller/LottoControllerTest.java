@@ -16,8 +16,6 @@ class LottoControllerTest extends NsTest {
         assertSimpleTest(() -> {
             run("3000", "1,2,3,4,5,6", "7");
 
-            lottoController.gameStart();
-
             String consoleOutput = output();
             assertThat(consoleOutput).isNotInstanceOfAny(IllegalArgumentException.class);
         });
@@ -28,8 +26,6 @@ class LottoControllerTest extends NsTest {
     void makeLottoList() {
         assertSimpleTest(() -> {
             run("3000", "1,2,3,4,5,6", "7");
-
-            lottoController.gameStart();
 
             /*List<Lotto> resultList = lottoController.getLottoGame().getLottoGameList();
             assertThat(resultList.size()).isEqualTo(3);*/

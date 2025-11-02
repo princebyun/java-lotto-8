@@ -17,25 +17,10 @@ public class LottoController {
     private final ResultView resultView = new ResultView();
     private final LottoGame lottoGame = new LottoGame();
 
-    public void gameStart() {
-        userInputPurchaseMoneySave();
-        makeLottoList();
-        userInputWinningNumbersSave();
-        userInputBonusNumberSave();
-        lottoMatch();
-    }
-
     public void userInputPurchaseMoneySave() {
-        while (true) {
-            try {
-                String userInputValue = userInputView.userInputPurchaseMoneyView();
-                int purchaseMoney = lottoService.valueIntegerConversion(userInputValue);
-                lottoGame.setPurchaseMoney(userInputValidation.purchaseMoneyValidation(purchaseMoney));
-                return;
-            } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
-            }
-        }
+        String userInputValue = userInputView.userInputPurchaseMoneyView();
+        int purchaseMoney = lottoService.valueIntegerConversion(userInputValue);
+        lottoGame.setPurchaseMoney(userInputValidation.purchaseMoneyValidation(purchaseMoney));
     }
 
     public void makeLottoList() {
@@ -47,30 +32,16 @@ public class LottoController {
     }
 
     public void userInputWinningNumbersSave() {
-        while (true) {
-            try {
-                String userInput = userInputView.userInputWinningNumbersView();
-                String[] userInputSplit = lottoService.winningNumbersSplit(userInput);
-                userInputValidation.winningNumbersValidation(userInputSplit);
-                lottoGame.setWinningNumbers(lottoService.winningNumbersConversion(userInputSplit));
-                return;
-            } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
-            }
-        }
+        String userInput = userInputView.userInputWinningNumbersView();
+        String[] userInputSplit = lottoService.winningNumbersSplit(userInput);
+        userInputValidation.winningNumbersValidation(userInputSplit);
+        lottoGame.setWinningNumbers(lottoService.winningNumbersConversion(userInputSplit));
     }
 
     public void userInputBonusNumberSave() {
-        while (true) {
-            try {
-                String userInput = userInputView.userInputBonusNumberView();
-                userInputValidation.bonusNumberValidation(userInput, lottoGame.getWinningNumbers());
-                lottoGame.setBonusNumber(lottoService.valueIntegerConversion(userInput));
-                return;
-            } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
-            }
-        }
+        String userInput = userInputView.userInputBonusNumberView();
+        userInputValidation.bonusNumberValidation(userInput, lottoGame.getWinningNumbers());
+        lottoGame.setBonusNumber(lottoService.valueIntegerConversion(userInput));
     }
 
     public void lottoMatch() {
