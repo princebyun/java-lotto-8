@@ -7,7 +7,14 @@ import java.util.Set;
 import service.LottoService;
 
 public class UserInputValidation {
+    private static final int LOTTO_SIZE = 6;
+    private static final int LOTTO_START = 1;
+    private static final int LOTTO_END = 45;
+    private static final int LOTTO_ZERO = 0;
+    private static final int LOTTO_PAY = 1000;
+
     LottoService lottoService = new LottoService();
+
 
     public int purchaseMoneyValidation(int purchaseMoney) {
         purchaseMoneyRemainder(purchaseMoney);
@@ -17,13 +24,13 @@ public class UserInputValidation {
 
 
     public void numberNegative(int purchaseMoney) {
-        if (purchaseMoney < 0) {
+        if (purchaseMoney < LOTTO_ZERO) {
             throw new IllegalArgumentException("[ERROR] 음수는 입력이 안됩니다.");
         }
     }
 
     public void purchaseMoneyRemainder(int purchaseMoney) {
-        if (purchaseMoney % 1000 != 0) {
+        if (purchaseMoney % LOTTO_PAY != LOTTO_ZERO) {
             throw new IllegalArgumentException("[ERROR] 1,000원 단위가 아닙니다.");
         }
     }
@@ -54,7 +61,7 @@ public class UserInputValidation {
     }
 
     public void lengthCheck(String[] userInput) {
-        if (userInput.length != 6) {
+        if (userInput.length != LOTTO_SIZE) {
             throw new IllegalArgumentException("[ERROR] 6자리를 입력해주세요.");
         }
     }
@@ -75,7 +82,7 @@ public class UserInputValidation {
 
 
     public void numbersRangeValidation(int winningNumber) {
-        if (winningNumber < 1 || 45 < winningNumber) {
+        if (winningNumber < LOTTO_START || LOTTO_END < winningNumber) {
             throw new IllegalArgumentException("[ERROR] 입력값은 1부터 45 사이의 중복되지 않는 정수입니다.");
         }
     }

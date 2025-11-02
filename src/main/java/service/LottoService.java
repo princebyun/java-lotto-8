@@ -10,6 +10,11 @@ import model.LottoGame;
 import model.WinningInfo;
 
 public class LottoService {
+    private static final int LOTTO_SIZE = 6;
+    private static final int LOTTO_START = 1;
+    private static final int LOTTO_END = 45;
+    private static final int LOTTO_PAY = 1000;
+    private static final Double LOTTO_RESULT = 100.0;
 
     public int valueIntegerConversion(String value) {
         try {
@@ -20,7 +25,7 @@ public class LottoService {
     }
 
     public List<Integer> makeLotto() {
-        return Randoms.pickUniqueNumbersInRange(1, 45, 6)
+        return Randoms.pickUniqueNumbersInRange(LOTTO_START, LOTTO_END, LOTTO_SIZE)
                 .stream()
                 .sorted()
                 .collect(Collectors.toList());
@@ -72,11 +77,11 @@ public class LottoService {
                 + (lottoGame.getFourthCount() * WinningInfo.RANK4.getWinningMoney())
                 + (lottoGame.getFifthCount() * WinningInfo.RANK5.getWinningMoney());
         double purchaseMoney = Double.parseDouble(String.valueOf(lottoGame.getPurchaseMoney()));
-        return (allSumValue / purchaseMoney) * 100.0;
+        return (allSumValue / purchaseMoney) * LOTTO_RESULT;
     }
 
     public int purchaseMoneyRemain(int purchaseMoney) {
-        return purchaseMoney / 1000;
+        return purchaseMoney / LOTTO_PAY;
     }
 
 }
