@@ -1,12 +1,10 @@
 package model;
 
 public enum LottoMessage {
-    // UserInputView Messages
     USER_INPUT_PURCHASE_MONEY_VIEW("구입금액을 입력해 주세요."),
     USER_INPUT_WINNING_NUMBERS_VIEW("\n당첨 번호를 입력해 주세요."),
     USER_INPUT_BONUS_NUMBER_VIEW("\n보너스 번호를 입력해 주세요."),
 
-    // ResultView Messages
     PURCHASE_LOTTO_COUNT_VIEW("\n%d개를 구매했습니다."),
     LOTTO_STATISTICS_VIEW("\n당첨 통계\n---"),
     INFO_RANK_5("3개 일치 (5,000원) - %d개"),
@@ -16,7 +14,6 @@ public enum LottoMessage {
     INFO_RANK_1("6개 일치 (2,000,000,000원) - %d개"),
     LOTTO_RESULT("총 수익률은 %.1f%%입니다."),
 
-    // Error Messages
     ERROR_PREFIX("[ERROR] "),
     PURCHASE_MONEY_REMAINDER("1,000원 단위가 아닙니다."),
     NUMBER_NEGATIVE("음수는 입력이 안됩니다."),
