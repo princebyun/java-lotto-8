@@ -66,11 +66,11 @@ public class LottoService {
     }
 
     public double lottoResult(LottoGame lottoGame) {
-        double allSumValue = (lottoGame.getFirstCount() * 2000000000)
-                + (lottoGame.getSecondCount() * 30000000)
-                + (lottoGame.getThirdCount() * 1500000)
-                + (lottoGame.getFourthCount() * 50000)
-                + (lottoGame.getFifthCount() * 5000);
+        double allSumValue = (lottoGame.getFirstCount() * WinningInfo.RANK1.getWinningMoney())
+                + (lottoGame.getSecondCount() * WinningInfo.RANK2.getWinningMoney())
+                + (lottoGame.getThirdCount() * WinningInfo.RANK3.getWinningMoney())
+                + (lottoGame.getFourthCount() * WinningInfo.RANK4.getWinningMoney())
+                + (lottoGame.getFifthCount() * WinningInfo.RANK5.getWinningMoney());
         double purchaseMoney = Double.parseDouble(String.valueOf(lottoGame.getPurchaseMoney()));
         return (allSumValue / purchaseMoney) * 100.0;
     }

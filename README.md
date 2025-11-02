@@ -106,3 +106,5 @@ view -> Controller -> service -> domain -> service -> controller -> view
 1. makeLottoList() 금액 나누는 로직 기능으로 다시 빼기
 2. 당첨번호 6자리 밸리데이션추가
 3. 에러메세지 다시 작성
+4. Application 와 LottoController 관심분리 적용
+5. 메서드 길이가 15라인이 넘는 메서드 수정

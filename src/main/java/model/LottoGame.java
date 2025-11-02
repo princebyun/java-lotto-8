@@ -67,24 +67,43 @@ public class LottoGame {
     }
 
     public void getCounts(WinningInfo winningInfo) {
+        firstCountPlus(winningInfo);
+        secondCountPlus(winningInfo);
+        thirdCountPlus(winningInfo);
+        fourthCountPlus(winningInfo);
+        fifthCountPlus(winningInfo);
+    }
+
+
+    public void firstCountPlus(WinningInfo winningInfo) {
         if (winningInfo.getWinningNumber() == 6) {
             this.firstCount++;
-            return;
         }
+    }
+
+    public void secondCountPlus(WinningInfo winningInfo) {
         if (winningInfo.getWinningNumber() == 5 && winningInfo.getBonusNumber() == 1) {
             this.secondCount++;
-            return;
         }
-        if (winningInfo.getWinningNumber() == 5) {
+    }
+
+    public void thirdCountPlus(WinningInfo winningInfo) {
+        if (winningInfo.getWinningNumber() == 5 && winningInfo.getBonusNumber() == 0) {
             this.thirdCount++;
-            return;
         }
+    }
+
+    public void fourthCountPlus(WinningInfo winningInfo) {
         if (winningInfo.getWinningNumber() == 4) {
             this.fourthCount++;
-            return;
         }
+    }
+
+    public void fifthCountPlus(WinningInfo winningInfo) {
         if (winningInfo.getWinningNumber() == 3) {
             this.fifthCount++;
         }
     }
+
+
 }
