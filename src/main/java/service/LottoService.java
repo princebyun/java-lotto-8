@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import lotto.Lotto;
 import model.LottoGame;
+import model.LottoMessage;
 import model.WinningInfo;
 
 public class LottoService {
@@ -20,7 +21,7 @@ public class LottoService {
         try {
             return Integer.parseInt(value);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("[ERROR] 문자는 입력할수 없습니다.");
+            throw new IllegalArgumentException(LottoMessage.getError(LottoMessage.ERROR_NOT_NUMBER));
         }
     }
 

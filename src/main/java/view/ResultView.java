@@ -3,12 +3,12 @@ package view;
 import java.util.List;
 import lotto.Lotto;
 import model.LottoGame;
+import model.LottoMessage;
 
 public class ResultView {
 
     public void purchaseLottoCountView(int money) {
-        System.out.println();
-        System.out.println(money + "개를 구매했습니다.");
+        System.out.println(LottoMessage.PURCHASE_LOTTO_COUNT_VIEW.format(money));
     }
 
     public void userPurchaseLottoListView(List<Lotto> userPurchaseLottoList) {
@@ -18,19 +18,16 @@ public class ResultView {
     }
 
     public void lottoStatisticsView(LottoGame lottoGame) {
-        System.out.println();
-        System.out.println("당첨 통계");
-        System.out.println("---");
-        System.out.println("3개 일치 (5,000원) - " + lottoGame.getFifthCount() + "개");
-        System.out.println("4개 일치 (50,000원) - " + lottoGame.getFourthCount() + "개");
-        System.out.println("5개 일치 (1,500,000원) - " + lottoGame.getThirdCount() + "개");
-        System.out.println("5개 일치, 보너스 볼 일치 (30,000,000원) - " + lottoGame.getSecondCount() + "개");
-        System.out.println("6개 일치 (2,000,000,000원) - " + lottoGame.getFirstCount() + "개");
+        System.out.println(LottoMessage.LOTTO_STATISTICS_VIEW.getLottoMessage());
+        System.out.println(LottoMessage.INFO_RANK_5.format(lottoGame.getFifthCount()));
+        System.out.println(LottoMessage.INFO_RANK_4.format(lottoGame.getFourthCount()));
+        System.out.println(LottoMessage.INFO_RANK_3.format(lottoGame.getThirdCount()));
+        System.out.println(LottoMessage.INFO_RANK_2.format(lottoGame.getSecondCount()));
+        System.out.println(LottoMessage.INFO_RANK_1.format(lottoGame.getFirstCount()));
     }
 
     public void lottoResult(Double resultValue) {
-        String resultString = String.format("%.1f", resultValue);
-        System.out.println("총 수익률은 " + resultString + "%입니다.");
+        System.out.println(LottoMessage.LOTTO_RESULT.format(resultValue));
     }
 
 }

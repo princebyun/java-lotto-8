@@ -2,22 +2,22 @@ package view;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
+import model.LottoMessage;
+
 public class UserInputView {
 
     public String userInputPurchaseMoneyView() {
-        System.out.println("구입금액을 입력해 주세요.");
+        System.out.println(LottoMessage.USER_INPUT_PURCHASE_MONEY_VIEW.getLottoMessage());
         return readLine();
     }
 
     public String userInputWinningNumbersView() {
-        System.out.println();
-        System.out.println("당첨 번호를 입력해 주세요.");
+        System.out.println(LottoMessage.USER_INPUT_WINNING_NUMBERS_VIEW.getLottoMessage());
         return readLine();
     }
 
     public String userInputBonusNumberView() {
-        System.out.println();
-        System.out.println("보너스 번호를 입력해 주세요.");
+        System.out.println(LottoMessage.USER_INPUT_BONUS_NUMBER_VIEW.getLottoMessage());
         return readLine();
     }
 }
