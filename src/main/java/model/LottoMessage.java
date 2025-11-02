@@ -14,16 +14,15 @@ public enum LottoMessage {
     INFO_RANK_1("6개 일치 (2,000,000,000원) - %d개"),
     LOTTO_RESULT("총 수익률은 %.1f%%입니다."),
 
-    ERROR_PREFIX("[ERROR] "),
-    PURCHASE_MONEY_REMAINDER("1,000원 단위가 아닙니다."),
-    NUMBER_NEGATIVE("음수는 입력이 안됩니다."),
-    ERROR_NOT_NUMBER("문자는 입력할수 없습니다."),
-    CHECK_DECIMAL_POINT("입력값은 정수어야 합니다."),
-    NUMBERS_RANGE_VALIDATION("입력값은 1부터 45 사이의 중복되지 않는 정수입니다."),
-    DUPLICATE_CHECK_WINNING_NUMBER("중복되지 않은 당첨 번호를 입력해주세요."),
-    WINNING_NUMBERS_DUPLICATE_CHECK("보너스 번호는 당첨 번호와 중복될 수 없습니다."),
-    LENGTH_CHECK("로또 번호는 6개여야 합니다."),
-    LOTTO_DUPLICATE("로또 번호는 중복될 수 없습니다.");
+    PURCHASE_MONEY_REMAINDER("[ERROR] 1,000원 단위가 아닙니다."),
+    NUMBER_NEGATIVE("[ERROR] 음수는 입력이 안됩니다."),
+    ERROR_NOT_NUMBER("[ERROR] 문자는 입력할수 없습니다."),
+    CHECK_DECIMAL_POINT("[ERROR] 입력값은 정수어야 합니다."),
+    NUMBERS_RANGE_VALIDATION("[ERROR] 입력값은 1부터 45 사이의 중복되지 않는 정수입니다."),
+    DUPLICATE_CHECK_WINNING_NUMBER("[ERROR] 중복되지 않은 당첨 번호를 입력해주세요."),
+    WINNING_NUMBERS_DUPLICATE_CHECK("[ERROR] 보너스 번호는 당첨 번호와 중복될 수 없습니다."),
+    LENGTH_CHECK("[ERROR] 로또 번호는 6개여야 합니다."),
+    LOTTO_DUPLICATE("[ERROR] 로또 번호는 중복될 수 없습니다.");
 
     private final String lottoMessage;
 
@@ -37,9 +36,5 @@ public enum LottoMessage {
 
     public String format(Object value) {
         return String.format(lottoMessage, value);
-    }
-
-    public static String getError(LottoMessage errorMessage) {
-        return ERROR_PREFIX.getLottoMessage() + errorMessage.getLottoMessage();
     }
 }

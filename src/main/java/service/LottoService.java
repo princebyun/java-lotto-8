@@ -21,7 +21,7 @@ public class LottoService {
         try {
             return Integer.parseInt(value);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(LottoMessage.getError(LottoMessage.ERROR_NOT_NUMBER));
+            throw new IllegalArgumentException(LottoMessage.ERROR_NOT_NUMBER.getLottoMessage());
         }
     }
 

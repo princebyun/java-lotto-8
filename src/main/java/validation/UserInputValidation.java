@@ -22,13 +22,13 @@ public class UserInputValidation {
 
     public void numberNegative(int purchaseMoney) {
         if (purchaseMoney < LOTTO_ZERO) {
-            throw new IllegalArgumentException(LottoMessage.getError(LottoMessage.NUMBER_NEGATIVE));
+            throw new IllegalArgumentException(LottoMessage.NUMBER_NEGATIVE.getLottoMessage());
         }
     }
 
     public void purchaseMoneyRemainder(int purchaseMoney) {
         if (purchaseMoney % LOTTO_PAY != LOTTO_ZERO) {
-            throw new IllegalArgumentException(LottoMessage.getError(LottoMessage.PURCHASE_MONEY_REMAINDER));
+            throw new IllegalArgumentException(LottoMessage.PURCHASE_MONEY_REMAINDER.getLottoMessage());
         }
     }
 
@@ -36,7 +36,7 @@ public class UserInputValidation {
         try {
             return Integer.parseInt(value);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(LottoMessage.getError(LottoMessage.ERROR_NOT_NUMBER));
+            throw new IllegalArgumentException(LottoMessage.ERROR_NOT_NUMBER.getLottoMessage());
         }
     }
 
@@ -50,7 +50,7 @@ public class UserInputValidation {
 
     public void winningNumbersDuplicateCheck(int bonusNumber, List<Integer> winningNumbers) {
         if (winningNumbers.contains(bonusNumber)) {
-            throw new IllegalArgumentException(LottoMessage.getError(LottoMessage.WINNING_NUMBERS_DUPLICATE_CHECK));
+            throw new IllegalArgumentException(LottoMessage.WINNING_NUMBERS_DUPLICATE_CHECK.getLottoMessage());
         }
     }
 
@@ -67,28 +67,28 @@ public class UserInputValidation {
 
     public void lengthCheck(String[] userInput) {
         if (userInput.length != LOTTO_SIZE) {
-            throw new IllegalArgumentException(LottoMessage.getError(LottoMessage.LENGTH_CHECK));
+            throw new IllegalArgumentException(LottoMessage.LENGTH_CHECK.getLottoMessage());
         }
     }
 
     public void duplicateCheck(String[] userInput) {
         Set<String> uniqueValues = new HashSet<>(Arrays.asList(userInput));
         if (uniqueValues.size() != userInput.length) {
-            throw new IllegalArgumentException(LottoMessage.getError(LottoMessage.DUPLICATE_CHECK_WINNING_NUMBER));
+            throw new IllegalArgumentException(LottoMessage.DUPLICATE_CHECK_WINNING_NUMBER.getLottoMessage());
         }
     }
 
 
     public void checkDecimalPoint(String winningNumber) {
         if (winningNumber.contains(".")) {
-            throw new IllegalArgumentException(LottoMessage.getError(LottoMessage.CHECK_DECIMAL_POINT));
+            throw new IllegalArgumentException(LottoMessage.CHECK_DECIMAL_POINT.getLottoMessage());
         }
     }
 
 
     public void numbersRangeValidation(int winningNumber) {
         if (winningNumber < LOTTO_START || LOTTO_END < winningNumber) {
-            throw new IllegalArgumentException(LottoMessage.getError(LottoMessage.NUMBERS_RANGE_VALIDATION));
+            throw new IllegalArgumentException(LottoMessage.NUMBERS_RANGE_VALIDATION.getLottoMessage());
         }
     }
 
